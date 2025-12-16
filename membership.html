@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>African Child Comforters - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+</head>
+    <body class="bg-gray-50">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4 md:justify-start md:space-x-10">
+
+                <div class="flex justify-start lg:w-0 lg:flex-1">
+                    <a href="#" class="flex items-center space-x-2">
+                        <img class="h-8 w-auto sm:h-10" src="Picha/LOGO.png" alt="ACC Logo">
+                        <span class="text-xl font-bold text-indigo-600">African Child Comforters</span>
+                    </a>
+                </div>
+
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-base font-medium text-gray-500 hover:text-gray-900">Home</a>
+                    <a href="about .html" class="text-base font-medium text-gray-500 hover:text-gray-900">About Us</a>
+                    <a href="program.html" class="text-base font-medium text-gray-500 hover:text-gray-900">Programs</a>
+                    <a href="Project.html" class="text-base font-medium text-gray-500 hover:text-gray-900">Projects</a>
+                    <a href="gallery.html" class="text-base font-medium text-gray-500 hover:text-gray-900">Gallery</a>
+                    <a href="contact.html" class="text-base font-medium text-gray-500 hover:text-gray-900">Contact Us</a>
+                </nav>
+
+                <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0 space-x-4">
+                    <a href="involve.html" class="whitespace-nowrap text-base font-medium text-indigo-600 hover:text-indigo-900 border border-indigo-600 py-2 px-4 rounded-md">
+                        Get Involved
+                    </a>
+                    <a href="donate.html" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700 transition duration-300">
+                        Donate
+                    </a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
+                        <span class="sr-only">Open menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-0 inset-x-0 p-2 transition transform origin-top-right">
+            <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+                <div class="pt-5 pb-6 px-5">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-xl font-bold text-indigo-600">African Child Comforters</span>
+                        </div>
+                        <div class="-mr-2">
+                            <button id="close-menu-button" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                                <span class="sr-only">Close menu</span>
+                                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <nav class="grid gap-y-8">
+                            <a href="index.html" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">Home</a>
+                            <a href="about .html" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">About Us</a>
+                            <a href="program.html" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">Programs</a>
+                            <a href="Project.html" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">Projects</a>
+                            <a href="gallery.html" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">Gallery</a>
+                            <a href="contact.html" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">Contact Us</a>
+                        </nav>
+                    </div>
+                </div>
+                <div class="py-6 px-5 space-y-6">
+                    <div>
+                        <a href="donate.html" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700">
+                            Donate
+                        </a>
+                        <p class="mt-6 text-center text-base font-medium text-gray-500">
+                            <a href="involve.html" class="text-indigo-600 hover:text-indigo-500">
+                                Get Involved
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+   <body class="font-sans antialiased text-white bg-black">
+
+    <section class="bg-black pt-24 pb-16 text-white text-center">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4">The Faces Behind the Impact</h1>
+            <p class="text-xl text-blue-200 max-w-4xl mx-auto">
+                Our board, staff, and external advisors are united by a commitment to ethical governance, transparent practice, and direct, measurable impact on the children we serve.
+            </p>
+        </div>
+    </section>
+
+    <section id="directors-board" class="py-20 bg-gray-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-base font-bold text-secondary uppercase tracking-wider mb-2 block">Governance & Oversight</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-primary mb-3">The Body of Directors (The Fiduciaries)</h2>
+                <p class="text-lg text-gray-600 max-w-4xl mx-auto">
+                    The Board provides **strategic direction, financial oversight, and legal stewardship**. They ensure the organization remains true to its mission and operates with the highest ethical standards.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-y-10 gap-x-6">
+                
+                <div class="lg:col-span-2 bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 border-l-4 border-primary flex flex-col items-center text-center">
+                    <img class="w-32 h-32 rounded-full mb-4 border-4 border-primary object-cover" src="Picha/download.png" alt="Photo of Board Chairperson">
+                    <h3 class="text-2xl font-bold text-gray-900">Ms. Elara Johnson</h3>
+                    <p class="text-primary font-semibold text-lg mb-2">Chairperson</p>
+                    <p class="text-sm text-gray-600 italic">
+                        "Leading with integrity and a deep commitment to sustainable growth."
+                    </p>
+                    <div class="mt-4 pt-3 border-t w-full">
+                        <p class="text-xs text-gray-700 font-medium">Core Responsibility: **Board Leadership & Executive Evaluation**</p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-white p-4 rounded-xl shadow-md flex items-center space-x-4 hover:bg-blue-50 transition">
+                        <img class="w-16 h-16 rounded-full object-cover flex-shrink-0" src="Picha/download.png" alt="Photo of Vice-Chair">
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900">Mr. Samwel Mwangemi</h4>
+                            <p class="text-sm text-primary">Vice-Chairperson</p>
+                            <p class="text-xs text-gray-600 mt-1">Focus: Committee coordination & Audit oversight.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-md flex items-center space-x-4 hover:bg-blue-50 transition">
+                        <img class="w-16 h-16 rounded-full object-cover flex-shrink-0" src="Picha/download.png" alt="Photo of Treasurer">
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900">Dr. Aisha Rashid</h4>
+                            <p class="text-sm text-primary">Treasurer</p>
+                            <p class="text-xs text-gray-600 mt-1">Focus: Financial health & Budget approval.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-md flex items-center space-x-4 hover:bg-blue-50 transition">
+                        <img class="w-16 h-16 rounded-full object-cover flex-shrink-0" src="Picha/download.png" alt="Photo of Secretary">
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900">Prof. Kenji Tanaka</h4>
+                            <p class="text-sm text-primary">Secretary</p>
+                            <p class="text-xs text-gray-600 mt-1">Focus: Records, bylaws & Governance protocols.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-md flex items-center space-x-4 hover:bg-blue-50 transition">
+                        <img class="w-16 h-16 rounded-full object-cover flex-shrink-0" src="Picha/download.png" alt="Photo of Member at Large">
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900">Ms. Sofia Al-Farsi</h4>
+                            <p class="text-sm text-primary">Member-at-Large</p>
+                            <p class="text-xs text-gray-600 mt-1">Focus: Strategic fundraising & Donor advocacy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="management-team" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-base font-bold text-secondary uppercase tracking-wider mb-2 block">Daily Action & Execution</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-accent mb-3">Management Team (The Implementers)</h2>
+                <p class="text-lg text-gray-600 max-w-4xl mx-auto">
+                    The Management Team oversees **day-to-day operations, program delivery, and financial administration**, implementing the strategy set by the Board.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+                
+                <div class="sm:col-span-2 lg:col-span-2 bg-accent/10 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 border-r-4 border-accent">
+                    <img class="w-40 h-40 rounded-full mx-auto mb-4 border-4 border-accent object-cover" src="Picha/download.png" alt="Photo of Executive Director">
+                    <h3 class="text-2xl font-bold text-gray-900 text-center">Mr. Benard Ochieng</h3>
+                    <p class="text-accent font-semibold text-lg text-center mb-2">Executive Director (CEO)</p>
+                    <p class="text-sm text-gray-700 text-center italic">
+                        "Driving the mission forward with measurable impact and commitment."
+                    </p>
+                    <div class="mt-4 pt-3 border-t border-accent/30 w-full text-center">
+                        <p class="text-xs text-gray-800 font-medium">Core Responsibility: **Operational Management & Public Representation**</p>
+                    </div>
+                </div>
+
+                <div class="sm:col-span-2 lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    
+                    <div class="bg-white p-4 rounded-xl shadow-md text-center hover:shadow-lg transition border-t-2 border-accent">
+                        <img class="w-16 h-16 rounded-full mx-auto mb-2 object-cover" src="Picha/download.png" alt="Photo of Program Director">
+                        <h4 class="font-bold text-gray-900">Ms. Janet Mussa</h4>
+                        <p class="text-sm text-accent">Director of Programs</p>
+                        <p class="text-xs text-gray-600 mt-1">Focus: Field program efficiency.</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-xl shadow-md text-center hover:shadow-lg transition border-t-2 border-accent">
+                        <img class="w-16 h-16 rounded-full mx-auto mb-2 object-cover" src="Picha/download.png" alt="Photo of Finance Manager">
+                        <h4 class="font-bold text-gray-900">Mr. Michael Chen</h4>
+                        <p class="text-sm text-accent">Finance Manager</p>
+                        <p class="text-xs text-gray-600 mt-1">Focus: Budget execution & Compliance.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl shadow-md text-center hover:shadow-lg transition border-t-2 border-accent">
+                        <img class="w-16 h-16 rounded-full mx-auto mb-2 object-cover" src="Picha/download.png" alt="Photo of Development Manager">
+                        <h4 class="font-bold text-gray-900">Ms. Chloe Dupont</h4>
+                        <p class="text-sm text-accent">Development Manager</p>
+                        <p class="text-xs text-gray-600 mt-1">Focus: Grant writing & Donor relations.</p>
+                    </div>
+
+                    <div class="sm:col-span-3 bg-white p-4 rounded-xl shadow-md text-center hover:shadow-lg transition border-t-2 border-accent">
+                        <img class="w-16 h-16 rounded-full mx-auto mb-2 object-cover" src="Picha/download.png" alt="Photo of Development Manager">
+                        <h4 class="font-bold text-gray-900">Mr. Daudi Mchunga</h4>
+                        <p class="text-sm text-accent">Field Operations Lead</p>
+                        <p class="text-xs text-gray-600 mt-1">Focus: Logistics, resource distribution, and local team management.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    
+
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-base font-bold text-secondary uppercase tracking-wider mb-2 block">Specialized Guidance & Support</span>
+                <h2 class="text-4xl font-extrabold text-gray-900 mb-4">External Advisory Members (5 Members)</h2>
+                <p class="text-lg text-textgray max-w-4xl mx-auto border-b-2 border-secondary/20 pb-4">
+                    These dedicated professionals lend their specialized expertise to guide our programs and ensure we remain effective, compliant, and impactful in the region.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+                <div class="member-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group overflow-hidden border-t-4 border-secondary">
+                    <img class="w-full h-48 object-cover object-center member-img transition duration-500" src="Picha/download.png" alt="External Name">
+                    <div class="p-5 text-center">
+                        <h3 class="member-name text-xl font-bold text-gray-900 transition duration-300">Aisha Alinani</h3>
+                        <p class="text-secondary font-semibold text-sm mb-3">Legal Advisor</p>
+                        <p class="text-xs text-textgray italic">Advises on regional laws and organizational compliance.</p>
+                    </div>
+                </div>
+                <div class="member-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group overflow-hidden border-t-4 border-secondary">
+                    <img class="w-full h-48 object-cover object-center member-img transition duration-500" src="Picha/download.png" alt="External Name">
+                    <div class="p-5 text-center">
+                        <h3 class="member-name text-xl font-bold text-gray-900 transition duration-300">Dr. C. Shija</h3>
+                        <p class="text-secondary font-semibold text-sm mb-3">Public Health Consultant</p>
+                        <p class="text-xs text-textgray italic">Guides health & hygiene components of our programs.</p>
+                    </div>
+                </div>
+                <div class="member-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group overflow-hidden border-t-4 border-secondary">
+                    <img class="w-full h-48 object-cover object-center member-img transition duration-500" src="Picha/download.png" alt="External Name">
+                    <div class="p-5 text-center">
+                        <h3 class="member-name text-xl font-bold text-gray-900 transition duration-300">Mr. L. Nyambwa</h3>
+                        <p class="text-secondary font-semibold text-sm mb-3">Education Specialist</p>
+                        <p class="text-xs text-textgray italic">Develops curricula and training for local schools.</p>
+                    </div>
+                </div>
+                <div class="member-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group overflow-hidden border-t-4 border-secondary">
+                    <img class="w-full h-48 object-cover object-center member-img transition duration-500" src="Picha/download.png" alt="External Name">
+                    <div class="p-5 text-center">
+                        <h3 class="member-name text-xl font-bold text-gray-900 transition duration-300">Grace Wambui</h3>
+                        <p class="text-secondary font-semibold text-sm mb-3">Technology Consultant</p>
+                        <p class="text-xs text-textgray italic">Advises on data collection and secure IT practices.</p>
+                    </div>
+                </div>
+                <div class="member-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 group overflow-hidden border-t-4 border-secondary">
+                    <img class="w-full h-48 object-cover object-center member-img transition duration-500" src="Picha/download.png" alt="External Name">
+                    <div class="p-5 text-center">
+                        <h3 class="member-name text-xl font-bold text-gray-900 transition duration-300">Juma Kassim</h3>
+                        <p class="text-secondary font-semibold text-sm mb-3">Regional Liaison (Local NGO)</p>
+                        <p class="text-xs text-textgray italic">Connects us with local partners and grassroots needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16 text-center">
+            <a href="about .html" 
+               class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-black hover:bg-blue-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+               <svg class="w-4 h-4 mr-2 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+               Go Back
+            </a>
+        </div>
+        </div>
+    </section>
+
+
+    <footer class="bg-black pt-16 pb-6 mt-20 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-14 pb-12"> 
+            
+            <div class="col-span-2 lg:col-span-3 space-y-6">
+                <h4 class="text-xl font-semibold text-secondary mb-4">African Child Comforters</h4>
+                <p class="text-sm text-gray-400 leading-relaxed ">
+                    The African Child Comforters Organisation (ACCO) originated in 2021 as a student support group, primarily focused on giving back to vulnerable communities in Mtwara Tanzania.
+                    </p>    
+                </div>
+            
+            <div class="col-span-1 md:col-span-1 lg:col-span-3">
+                <h4 class="text-xl font-semibold text-secondary mb-4">Links</h4>
+                <ul class="space-y-2"> <li><a href="index.html" class="text-gray-400 hover:text-accent transition duration-150">Home</a></li>
+                    <li><a href="about-us.html" class="text-gray-400 hover:text-accent transition duration-150">About Us</a></li>
+                    <li><a href="programs.html" class="text-gray-400 hover:text-accent transition duration-150">Programs</a></li>
+                    <li><a href="projects.html" class="text-gray-400 hover:text-accent transition duration-150">Project</a></li>
+                    <li><a href="gallery.html" class="text-gray-400 hover:text-accent transition duration-150">Gallery</a></li>
+                    <li><a href="contact.html" class="text-gray-400 hover:text-accent transition duration-150">Contact Us </a></li>
+                </ul>
+            </div>
+
+            <div class="col-span-2 md:col-span-2 lg:col-span-3">
+                <h4 class="text-xl font-semibold text-secondary mb-4">Contact Us</h4>
+                <ul class="space-y-3">
+                    
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt w-5 h-5 mr-3 text-accent flex-shrink-0 mt-1"></i>
+                        <span class="text-gray-400">P.O. Box 1234, Mwanza, Tanzania</span>
+                    </li>
+                    
+                    <li class="flex items-center">
+                        <i class="fas fa-phone w-5 h-5 mr-3 text-accent"></i>
+                        <a href="tel:+255767555123" class="text-gray-400 hover:text-accent">+255 767 555 123</a>
+                    </li>
+                    
+                    <li class="flex items-center">
+                        <i class="fas fa-envelope w-5 h-5 mr-3 text-accent"></i>
+                        <a href="mailto:info@africanchildcomforters.org" class="text-gray-400 hover:text-accent">info@acc.org</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="col-span-2 md:col-span-1 lg:col-span-3 space-y-4">
+                <h4 class="text-xl font-semibold text-secondary mb-4">Get Involved</h4>
+                
+                <a href="donate.html" class="w-full inline-block text-center px-4 py-3 border border-primary bg-green-600 text-white font-bold rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
+                    <svg class="w-5 h-5 inline mr-2 -mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    Donate Now
+                </a>
+                
+                <a href="involve.html" class="w-full inline-block text-center px-4 py-3 border border-primary text-white bg-blue-700 font-bold rounded-lg shadow-md hover:bg-green-600 transition duration-300">
+                    Volunteer
+                </a>
+                
+                <h4 class="text-lg font-semibold text-secondary pt-3">Follow Us</h4>
+                <div class="flex space-x-4">
+                    
+                    <a href="https://facebook.com/africanchildcomforters" aria-label="Facebook" class="text-gray-400 hover:text-white transition duration-150">
+                        <i class="fab fa-facebook-f w-6 h-6"></i>
+                    </a>
+                    
+                    <a href="https://twitter.com/africanchildcomforters" aria-label="X (Twitter)" class="text-gray-400 hover:text-white transition duration-150">
+                        <i class="fab fa-x-twitter w-6 h-6"></i>
+                    </a>
+                    
+                    <a href="https://instagram.com/africanchildcomforters" aria-label="Instagram" class="text-gray-400 hover:text-white transition duration-150">
+                        <i class="fab fa-instagram w-6 h-6"></i>
+                    </a>
+                    
+                    <a href="https://youtube.com/@africanchildcomforters" aria-label="YouTube" class="text-gray-400 hover:text-white transition duration-150">
+                        <i class="fab fa-youtube w-6 h-6"></i>
+                    </a>
+                    
+                    <a href="https://linkedin.com/company/africanchildcomforters" aria-label="LinkedIn" class="text-gray-400 hover:text-white transition duration-150">
+                        <i class="fab fa-linkedin-in w-6 h-6"></i>
+                    </a>
+                    
+                    <a href="https://tiktok.com/@africanchildcomforters" aria-label="TikTok" class="text-gray-400 hover:text-white transition duration-150">
+                        <i class="fab fa-tiktok w-6 h-6"></i>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="mt-6 pt-4 border-t border-white flex flex-col md:flex-row justify-center items-center text-sm text-white text-center">
+            <p>&copy; 2025 African Child Comforters. All Rights Reserved.</p>
+            
+            <div class="flex space-x-4 mt-3 md:mt-0 md:ml-6">
+                <a href="privacy.html" class="hover:text-accent transition duration-150">Privacy Policy</a>
+                <span class="text-white">|</span>
+                <a href="terms.html" class="hover:text-accent transition duration-150">Terms of Use</a>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+
+
+     
+    
+    <script src="scrpt.js"></script>
+</body>
+</html>

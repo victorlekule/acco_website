@@ -1,0 +1,77 @@
+/* styles.css */
+
+/* Custom class for the background images (for better organization) */
+.hero-slide {
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1000ms ease-in-out; /* Tailwind equivalent: duration-1000 */
+}
+
+/* Base state: All slides are hidden by default */
+.hero-slide-hidden {
+    opacity: 0;
+}
+
+/* Active state: Only one slide should have this class at a time */
+.hero-slide-active {
+    opacity: 1;
+}
+
+/* Define the actual background images here to keep them out of HTML */
+/* This is a common and clean way to handle static background images */
+.hero-slide-1 {
+    background-image: url('Picha/close-up-community-concept-with-hands.jpg');
+}
+
+.hero-slide-2 {
+    background-image: url('Picha/close-up-community-concept-with-hands.jpg');
+}
+
+.hero-slide-3 {
+    background-image: url('Picha/annie-spratt-427337-unsplash.jpg');
+}
+
+/*gallery*?
+/* Hide images that don't match the current filter */
+        .gallery-item:not(.show) {
+            display: none;
+        }
+
+ /*apply style*/
+
+    /* Define Custom Colors/Classes for Tailwind */
+    .text-primary { color: #1d4ed8; } /* Blue-700 */
+    .text-accent { color: #2563eb; } /* Blue-600 */
+    .text-secondary { color: #059669; } /* Emerald-600 */
+    .bg-secondary { background-color: #059669; }
+    .bg-accent-light { background-color: #dbeafe; } /* Blue-100 */
+    .focus\:ring-secondary:focus { border-color: #059669; box-shadow: 0 0 0 1px #059669; }
+    
+    /* Progress Line Color for JavaScript Update */
+    .progress-line-active {
+         background-color: #059669; /* Matches .bg-secondary */
+         height: 4px; 
+         transition: width 0.5s ease-in-out;
+    }
+
+    /* FIX: Custom classes defined using @layer components for CDN compatibility */
+   /* 1. Include core Tailwind directives for CDN to compile custom CSS */
+  
+
+    /* Define Custom Colors/Variables */
+    .text-primary { color: #1d4ed8; } /* Blue-700 */
+    .text-accent { color: #2563eb; } /* Blue-600 */
+    .text-secondary { color: #059669; } /* Emerald-600 */
+    .bg-secondary { background-color: #059669; }
+    .bg-accent-light { background-color: #dbeafe; } /* Blue-100 */
+    .focus\:ring-secondary:focus { border-color: #059669; box-shadow: 0 0 0 1px #059669; }
+
+    /* Progress Line Color for JavaScript Update */
+    .progress-line-active {
+         background-color: #059669; /* Matches .bg-secondary */
+         height: 4px; 
+         transition: width 0.5s ease-in-out;
+    }
+
+    
+    
