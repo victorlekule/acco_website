@@ -725,3 +725,22 @@ document.addEventListener('keydown', (event) => {
         document.addEventListener('DOMContentLoaded', () => {
             updateSteps(1);
         });
+
+
+        //lern more script//
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const loaderBar = document.getElementById('project-loader-digital');
+            const percentElement = document.querySelector('[data-funding-percent]');
+            
+            if (loaderBar && percentElement) {
+                const fundingPercent = percentElement.getAttribute('data-funding-percent');
+                
+                // Use setTimeout to ensure the browser registers the initial state (w-0 or w-[75%]) 
+                // before the transition is triggered.
+                setTimeout(() => {
+                    // Overwrite the w-[75%] class with the inline style, activating the CSS transition
+                    loaderBar.style.width = `${fundingPercent}%`;
+                }, 10);
+            }
+        }); 

@@ -41,7 +41,7 @@
 
     /* Define Custom Colors/Classes for Tailwind */
     .text-primary { color: #1d4ed8; } /* Blue-700 */
-    .text-accent { color: #2563eb; } /* Blue-600 */
+    .text-accent { color: #1b1b1b; } /* Blue-600 */
     .text-secondary { color: #059669; } /* Emerald-600 */
     .bg-secondary { background-color: #059669; }
     .bg-accent-light { background-color: #dbeafe; } /* Blue-100 */
