@@ -151,7 +151,7 @@ mobileLinks.forEach(link => {
 
         ///PROJECT 2//
 
-document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
         // --- Configuration for a single card example ---
         const loaderId = 'project-loader-1';
         
@@ -189,10 +189,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         */
     });
-
-
-
-
 
 
         //gallery scrpt//
@@ -744,3 +740,48 @@ document.addEventListener('keydown', (event) => {
                 }, 10);
             }
         }); 
+
+
+        //impacts scrpt//
+
+document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+        threshold: 0.5 // Start animation when 50% of section is visible
+    };
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const stats = entry.target.querySelectorAll('.stat-number');
+                
+                stats.forEach(stat => {
+                    const target = parseInt(stat.getAttribute('data-target'));
+                    const suffix = stat.getAttribute('data-suffix');
+                    const duration = 2000; // 2 seconds to finish
+                    const frameDuration = 1000 / 60; // 60fps
+                    const totalFrames = Math.round(duration / frameDuration);
+                    let frame = 0;
+
+                    const countUp = setInterval(() => {
+                        frame++;
+                        // Ease-out formula: Makes it slow down as it reaches the end
+                        const progress = frame / totalFrames;
+                        const currentCount = Math.round(target * progress);
+
+                        if (frame === totalFrames) {
+                            stat.innerText = target.toLocaleString() + suffix;
+                            clearInterval(countUp);
+                        } else {
+                            stat.innerText = currentCount.toLocaleString();
+                        }
+                    }, frameDuration);
+                });
+                
+                observer.unobserve(entry.target); // Stop observing after animation
+            }
+        });
+    }, observerOptions);
+
+    const impactSection = document.querySelector('#impact');
+    if (impactSection) counterObserver.observe(impactSection);
+});
