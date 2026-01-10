@@ -10,7 +10,7 @@
 </head>
 </head>
     <body class="bg-gray-50">
-
+<!--
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4 md:justify-start md:space-x-10">
@@ -93,7 +93,71 @@
                 </div>
             </div>
         </div>
-    </header>
+    </header> -->
+
+<header id="main-header" class="bg-white fixed top-0 left-0 right-0 z-50 border-b border-gray-100 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex items-center justify-between py-4">
+            
+            <div class="flex-shrink-0">
+                <a href="index.html" class="flex items-center space-x-2"> 
+                    <img class="h-8 w-auto sm:h-10 block" src="Picha/LOGO 2.png" alt="ACC Logo">
+                    <span class="hidden sm:block lg:text-base xl:text-xl font-bold text-indigo-600 whitespace-nowrap">
+                        African Child Comforters
+                    </span>
+                </a>
+            </div>
+
+            <nav class="hidden lg:flex flex-grow justify-center items-center lg:space-x-4 xl:space-x-10 px-2">
+                <a href="index.html" class="nav-link text-sm xl:text-base font-bold text-gray-500 hover:text-indigo-600 transition-colors">Home</a>
+                <a href="about .html" class="nav-link text-sm xl:text-base font-bold text-gray-500 hover:text-indigo-600 transition-colors">About Us</a>
+                <a href="program.html" class="nav-link text-sm xl:text-base font-bold text-gray-500 hover:text-indigo-600 transition-colors">Programs</a>
+                <a href="Project.html" class="nav-link text-sm xl:text-base font-bold text-gray-500 hover:text-indigo-600 transition-colors">Projects</a>
+                <a href="gallery.html" class="nav-link text-sm xl:text-base font-bold text-gray-500 hover:text-indigo-600 transition-colors">Gallery</a>
+                <a href="contact.html" class="nav-link text-sm xl:text-base font-bold text-gray-500 hover:text-indigo-600 transition-colors">Contact Us</a>
+            </nav>
+
+            <div class="flex-shrink-0 flex items-center">
+                <a href="involve.html" class="hidden lg:inline-block text-white bg-blue-600 hover:bg-green-600 py-2 px-4 xl:px-6 rounded-md font-medium text-sm xl:text-base transition-all">
+                    Get Involved
+                </a>
+
+                <div class="lg:hidden ml-4">
+                    <button id="menu-toggle-btn" type="button" class="text-gray-500 p-2 focus:outline-none">
+                        <svg id="icon-open" class="h-8 w-8 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg id="icon-close" class="h-8 w-8 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 z-50 lg:hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-white shadow-2xl border-b border-r border-gray-100 rounded-br-lg w-72 ml-4 overflow-hidden">
+                <nav class="flex flex-col">
+                    <a href="index.html" class="py-3 px-4 font-bold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 border-b border-gray-50">Home</a>
+                    <a href="about .html" class="py-3 px-4 font-bold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 border-b border-gray-50">About Us</a>
+                    <a href="program.html" class="py-3 px-4 font-bold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 border-b border-gray-50">Programs</a>
+                    <a href="Project.html" class="py-3 px-4 font-bold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 border-b border-gray-50">Projects</a>
+                    <a href="gallery.html" class="py-3 px-4 font-bold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 border-b border-gray-50">Gallery</a>
+                    <a href="contact.html" class="py-3 px-4 font-bold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 border-b border-gray-50">Contact Us</a>
+                    <div class="p-4">
+                        <a href="involve.html" class="inline-block text-white bg-blue-600 py-2 px-6 rounded-md font-bold">Get Involved</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div id="menu-overlay" class="fixed inset-0 top-[72px] bg-black/10 backdrop-blur-md hidden z-40"></div>
+
+<div class="h-[72px]"></div>
 
 
     <section class="bg-blue-600 pt-20 pb-16 text-center">
@@ -111,10 +175,10 @@
         <div class="mb-16">
             <span class="text-sm font-bold text-primary uppercase tracking-wider mb-2 block">Program Pillar 1</span>
             <h2 class="text-4xl font-extrabold text-gray-900 mb-6 border-b-4 border-accent/50 pb-2 inline-block">
-                INCLUSIVE EDUCATION FOR EVERY CHILD
+                Inclusive Education for Every Child & Autism Support
             </h2>
             <p class="text-lg text-gray-600 text-justify leading-relaxed max-w-none">
-                Education is the foundation upon which we were built. Our mission is to remove physical, financial, and sensory barriers to learning, ensuring that every child—regardless of gender or neurodiversity—has the tools to succeed. We believe that when you educate a child, you empower a community.
+               Education is the foundation upon which African Child Comforters Organization (ACCO) was built. We believe that every child deserves access to safe, inclusive, and dignified learning regardless of gender, ability, or family background. Through this program, we remove financial, physical, and social barriers to education, while intentionally building a future where children with autism and other special needs are fully included and supported.
             </p>
         </div>
 
@@ -138,7 +202,7 @@
                             </svg>
                         </div>
                         <p class="text-gray-700 leading-relaxed pt-1">
-                            <strong>Scholarships & Sponsorships:</strong> We provide full financial support covering tuition and essential fees for secondary school students from vulnerable backgrounds.
+                            <strong>Back to School Initiative:</strong>  Every January, we support vulnerable children as they return to school by providing uniforms, exercise books, school bags, pens, and other essential learning materials ensuring no child starts the school year left behind due to poverty.
                         </p>
                     </li>
 
@@ -149,7 +213,7 @@
                             </svg>
                         </div>
                         <p class="text-gray-700 leading-relaxed pt-1">
-                            <strong>Learning Materials:</strong> Distributing textbooks, uniforms, and stationery to ensure students can focus on learning without financial stress.
+                            <strong>Access to Education & Learning Support:</strong>  We promote equal access to education by supporting school fees and essential learning resources, helping children from low-income families remain in school and focus on their studies.
                         </p>
                     </li>
 
@@ -160,9 +224,51 @@
                             </svg>
                         </div>
                         <p class="text-gray-700 leading-relaxed pt-1">
-                            <strong>Resource Centers:</strong> Building community libraries and digital literacy labs equipped with computers to bridge the technology gap in underserved areas.
+                            <strong>Autism & Special Needs Inclusion:</strong>  ACCO was founded with a deep commitment to children with autism and special needs. We advocate for inclusive, structured, and supportive learning environments where neurodivergent children are respected, understood, and given the opportunity to thrive.
                         </p>
                     </li>
+                     <li class="flex items-start">
+                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-5">
+                            <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed pt-1">
+                            <strong>Dignified & Safe Learning Environments:</strong>  By providing personal learning materials and promoting routine and stability, we help create predictable environments that support both academic success and emotional well-being especially for children with autism.
+                        </p>
+                    </li>
+        <!--
+                     <li class="flex items-start">
+                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-5">
+                            <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed pt-1">
+                            <strong>Gender Equality in Education:</strong> We are fierce advocates for parity in the classroom. We ensure that our resources reach both girls and boys equally.
+                        </p>
+                    </li>
+                     <li class="flex items-start">
+                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-5">
+                            <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed pt-1">
+                            <strong>Future Vision; Autism Support Hub: </strong> Looking ahead, ACCO is committed to establishing a dedicated Autism Hub, a safe space where children with autism can learn, play, plant trees, and grow with confidence, while parents and caregivers access education, peer support, and guidance
+                        </p>
+                    </li>
+                     <li class="flex items-start">
+                        <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-5">
+                            <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed pt-1">
+                            <strong>Education is the foundation upon which we were built.</strong>  Our mission is to remove physical, financial, and sensory barriers to learning, ensuring that every child—regardless of gender or neurodiversity—has the tools to succeed.
+                        </p>
+                    </li>
+            -->
 
                 </ul>
                 

@@ -18,40 +18,43 @@
 
 
 //MOBILE MENU TOGGLE SCRIPT//
+document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.getElementById('menu-toggle-btn');
+    const menu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('menu-overlay');
+    const openIcon = document.getElementById('icon-open');
+    const closeIcon = document.getElementById('icon-close');
 
-// Get the button and the mobile menu element
-function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            if (menu.classList.contains('hidden')) {
+    if (btn && menu) {
+        btn.onclick = function() {
+            const isOpening = menu.classList.contains('hidden');
+
+            if (isOpening) {
+                // Show Menu and Blur
                 menu.classList.remove('hidden');
+                overlay.classList.remove('hidden');
+                openIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Lock scroll
             } else {
+                // Hide Menu and Blur
                 menu.classList.add('hidden');
+                overlay.classList.add('hidden');
+                openIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore scroll
             }
-        }
+        };
 
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const closeMenuButton = document.getElementById('close-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
-
-// Function to toggle the menu's visibility
-function toggleMobileMenu() {
-    // Toggles the 'hidden' Tailwind class on the mobile menu
-    mobileMenu.classList.toggle('hidden');
-}
-
-// Event listeners
-mobileMenuButton.addEventListener('click', toggleMobileMenu);
-closeMenuButton.addEventListener('click', toggleMobileMenu);
-
-// OPTIONAL: Close the menu if a link is clicked (in a Single-Page App setup)
-const mobileLinks = mobileMenu.querySelectorAll('a');
-mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        // Only hide if the menu is visible
-        if (!mobileMenu.classList.contains('hidden')) {
-            toggleMobileMenu();
-        }
-    });
+        // Close when clicking the blurred area
+        overlay.onclick = function() {
+            menu.classList.add('hidden');
+            overlay.classList.add('hidden');
+            openIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            document.body.style.overflow = '';
+        };
+    }
 });
 
 
@@ -442,286 +445,203 @@ document.addEventListener('keydown', (event) => {
 
         //donate scrpt//
     
-        //donation 3//
-        // REPLACE THIS WITH YOUR ACTUAL PUBLIC TEST/LIVE KEY from Paystack, Flutterwave, etc.
-        const PAYSTACK_PUBLIC_KEY = 'pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxx'; 
-        
-        // --- UI Logic ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const amountButtons = document.querySelectorAll('.amount-btn');
-            const freqButtons = document.querySelectorAll('.freq-btn');
-            const customAmountInput = document.getElementById('custom-amount');
-            const finalAmountInput = document.getElementById('final-amount-input');
-            const displayAmount = document.getElementById('display-amount');
-            const frequencyInput = document.getElementById('frequency-input');
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. MODAL CONTROLS
+    const modal = document.getElementById('donate-modal');
+    const openBtn = document.getElementById('open-donate');
+    const closeBtn = document.getElementById('close-modal');
 
-            // Initial setup for buttons
-            finalAmountInput.value = customAmountInput.value;
-            displayAmount.textContent = '$' + formatNumber(customAmountInput.value);
+    if (openBtn) openBtn.onclick = () => modal.classList.replace('hidden', 'flex');
+    if (closeBtn) closeBtn.onclick = () => modal.classList.replace('flex', 'hidden');
 
-            // Helper to format currency (adds commas)
-            function formatNumber(num) {
-                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            }
+    // 2. CARD NUMBER: STRICT 16 DIGITS, NO SPACES
+    const cardNumInput = document.getElementById('card-num');
+    cardNumInput.addEventListener('input', (e) => {
+        let v = e.target.value.replace(/\D/g, ''); // Keep only numbers
+        if (v.length > 16) v = v.slice(0, 16);    // Strict 16 limit
+        e.target.value = v;                       // No spaces added here
+        document.getElementById('card-error').classList.add('hidden');
+    });
 
-            // Function to update button styling
-            const updateActiveButton = (buttons, activeBtn, activeClass, inactiveClass) => {
-                buttons.forEach(btn => {
-                    btn.classList.remove(activeClass);
-                    btn.classList.add(inactiveClass);
-                });
-                activeBtn.classList.remove(inactiveClass);
-                activeBtn.classList.add(activeClass);
-            };
-
-            // 1. Handle Amount Button Clicks
-            amountButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const amount = button.getAttribute('data-amount');
-                    
-                    // Set custom input and final hidden input value
-                    customAmountInput.value = amount; 
-                    finalAmountInput.value = amount;
-                    displayAmount.textContent = '$' + formatNumber(amount);
-
-                    // Update button styles
-                    updateActiveButton(amountButtons, button, 'bg-accent', 'bg-gray-200');
-                    updateActiveButton(amountButtons, button, 'text-white', 'text-gray-700');
-                });
-            });
-
-            // 2. Handle Custom Input Changes
-            customAmountInput.addEventListener('input', () => {
-                let amount = customAmountInput.value;
-                if (amount < 100) amount = 100; // Minimum donation
-                
-                finalAmountInput.value = amount;
-                displayAmount.textContent = '$' + formatNumber(amount);
-
-                // De-select preset buttons
-                amountButtons.forEach(btn => {
-                    btn.classList.remove('bg-accent', 'text-white');
-                    btn.classList.add('bg-gray-200', 'text-gray-700');
-                });
-            });
-
-            // 3. Handle Frequency Button Clicks
-            freqButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const frequency = button.getAttribute('data-frequency');
-                    frequencyInput.value = frequency;
-                    
-                    // Update button styles
-                    updateActiveButton(freqButtons, button, 'bg-primary', 'bg-gray-200');
-                    updateActiveButton(freqButtons, button, 'text-white', 'text-gray-700');
-                });
-            });
-            
-            // --- Payment Integration Logic (Paystack) ---
-            const donationForm = document.getElementById('donation-form');
-            donationForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const amount = parseInt(finalAmountInput.value, 10);
-                const email = document.getElementById('donor-email').value;
-                const name = document.getElementById('donor-name').value;
-                const frequency = frequencyInput.value;
-                
-                if (!amount || !email || !name || amount < 100) {
-                    alert('Please ensure all required fields are filled and the donation amount is at least ₦100.');
-                    return;
-                }
-
-                // Paystack uses Kobo (cents/lowest denomination)
-                const amountInKobo = amount * 100; 
-
-                // Paystack Handler
-                const handler = Paystack.newTransaction({
-                    key: PAYSTACK_PUBLIC_KEY, // Replace with your public key
-                    email: email,
-                    amount: amountInKobo, 
-                    currency: 'USD',
-                    ref: '' + Math.floor((Math.random() * 1000000000) + 1), // unique reference
-
-                    // Metadata is optional, but useful for tracking
-                    metadata: {
-                        custom_fields: [
-                            {
-                                display_name: "Donor Name",
-                                variable_name: "name",
-                                value: name
-                            },
-                            {
-                                display_name: "Frequency",
-                                variable_name: "frequency",
-                                value: frequency
-                            }
-                        ]
-                    },
-
-                    // Callback functions
-                    callback: function(response){
-                        // Payment successful
-                        alert('Donation successful! Thank you for your support. Reference: ' + response.reference);
-                        // Redirect to a thank you page or update the UI
-                        window.location.href = 'thank-you.html?ref=' + response.reference; 
-                    },
-                    onClose: function(){
-                        // Payment modal closed by user
-                        alert('Donation process interrupted. You can try again anytime.');
-                    }
-                });
-                
-                // For recurring payments (Monthly), you would need to initialize a recurring plan on your backend server.
-                if (frequency === 'monthly') {
-                    alert('Recurring payments require server-side integration. You will be redirected to the secure page to set up your subscription.');
-                    // In a live scenario, you would redirect the user to a server-generated subscription page
-                    // or use the payment gateway's subscription API.
-                    handler.openIframe(); 
-                } else {
-                    handler.openIframe();
-                }
-            });
-        });
-        
-        // Mobile Menu Toggle (reused from previous step)
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+    // 3. EXPIRY DATE: AUTO-SLASH & VALIDATION
+    const expiryInput = document.getElementById('card-expiry');
+    expiryInput.addEventListener('input', (e) => {
+        let v = e.target.value.replace(/\D/g, '');
+        if (v.length > 4) v = v.slice(0, 4);
+        if (v.length > 2) {
+            e.target.value = v.slice(0, 2) + '/' + v.slice(2, 4);
+        } else {
+            e.target.value = v;
         }
-    
+        document.getElementById('expiry-error').classList.add('hidden');
+    });
 
-        //Apply Form//
-     let currentStep = 1;
-        const form = document.getElementById('volunteer-form');
-        const successMessage = document.getElementById('success-message');
-        const steps = [
-            document.getElementById('step-1'),
-            document.getElementById('step-2'),
-            document.getElementById('step-3')
-        ];
-        const indicators = [
-            document.getElementById('step-1-indicator'),
-            document.getElementById('step-2-indicator'),
-            document.getElementById('step-3-indicator')
-        ];
-        const progressBar = document.getElementById('progress-line');
+    // 4. AMOUNT SELECTION LOGIC
+    const amountBtns = document.querySelectorAll('.amount-btn');
+    const customWrapper = document.getElementById('custom-amount-wrapper');
+    const donorAmount = document.getElementById('donor-amount');
+    const badge = document.getElementById('amount-badge');
 
-        // Function to update the visibility and progress bar
-        function updateSteps(step) {
-            currentStep = step;
-
-            // 1. Update Step Visibility
-            steps.forEach((s, index) => {
-                s.classList.toggle('hidden', index + 1 !== currentStep);
-            });
-
-            // 2. Update Indicators
-            indicators.forEach((indicator, index) => {
-                const stepNumber = index + 1;
-                if (stepNumber === currentStep) {
-                    indicator.classList.add('bg-secondary', 'text-white', 'shadow-lg');
-                    indicator.classList.remove('border-gray-300', 'text-gray-700', 'bg-white');
-                } else if (stepNumber < currentStep) {
-                    indicator.classList.add('bg-secondary', 'text-white', 'shadow-lg');
-                    indicator.classList.remove('border-gray-300', 'text-gray-700', 'bg-white');
-                } else {
-                    indicator.classList.add('border-gray-300', 'text-gray-700', 'bg-white');
-                    indicator.classList.remove('bg-secondary', 'text-white', 'shadow-lg');
-                }
-            });
-
-            // 3. Update Progress Line
-            let progressPercentage = 0;
-            if (currentStep === 2) {
-                progressPercentage = 50;
-            } else if (currentStep === 3) {
-                progressPercentage = 100;
-                updateReviewSummary(); // Populate summary when moving to Step 3
-            }
-            // Subtract space for the dot diameter (approx 20px on each side of the line)
-            progressBar.style.width = `calc(${progressPercentage}% - ${progressPercentage === 100 ? 0 : 20}px)`;
-
-             // Ensure the line width is zero for step 1
-            if (currentStep === 1) {
-                progressBar.style.width = '0%';
-            }
-        }
-        
-        // Function to validate fields in the current step
-        function validateStep(step) {
-            let isValid = true;
-            const currentStepElement = steps[step - 1];
-            
-            // Check all required inputs/selects/textareas
-            currentStepElement.querySelectorAll('[required]').forEach(input => {
-                if (!input.value.trim()) {
-                    isValid = false;
-                    input.classList.add('border-red-500', 'ring-red-500'); // Highlight error
-                } else {
-                    input.classList.remove('border-red-500', 'ring-red-500');
-                }
-            });
-
-            return isValid;
-        }
-
-        // Navigation Functions
-        function nextStep(next) {
-            if (validateStep(currentStep)) {
-                updateSteps(next);
+    amountBtns.forEach(btn => {
+        btn.onclick = () => {
+            amountBtns.forEach(b => b.classList.remove('border-indigo-600', 'bg-indigo-50', 'text-indigo-600'));
+            btn.classList.add('border-indigo-600', 'bg-indigo-50', 'text-indigo-600');
+            const val = btn.dataset.val;
+            if (val === 'other') {
+                customWrapper.classList.remove('hidden');
+                badge.classList.add('hidden');
+                donorAmount.value = '';
+                donorAmount.focus();
             } else {
-                alert('Please fill out all required fields.');
+                customWrapper.classList.add('hidden');
+                badge.classList.remove('hidden');
+                document.getElementById('display-selected-val').innerText = val;
+                donorAmount.value = val;
             }
+        };
+    });
+
+    // 5. FORM SUBMISSION
+    document.getElementById('donation-form').onsubmit = (e) => {
+        e.preventDefault();
+
+        // Validate 16 Digits
+        if (cardNumInput.value.length !== 16) {
+            document.getElementById('card-error').classList.remove('hidden');
+            cardNumInput.focus();
+            return;
         }
 
-        function prevStep(prev) {
-            updateSteps(prev);
+        // Validate Future Date
+        const [month, year] = expiryInput.value.split('/').map(num => parseInt(num));
+        const now = new Date();
+        const curMonth = now.getMonth() + 1;
+        const curYear = parseInt(now.getFullYear().toString().slice(-2));
+
+        if (!month || !year || month < 1 || month > 12 || (year < curYear) || (year === curYear && month < curMonth)) {
+            document.getElementById('expiry-error').classList.remove('hidden');
+            expiryInput.focus();
+            return;
         }
 
-        // Function to update the summary in Step 3
-        function updateReviewSummary() {
-            // Step 1 Data
-            document.getElementById('summary-name').innerHTML = `<span class="font-semibold">Name:</span> ${document.getElementById('full-name').value}`;
-            document.getElementById('summary-email').innerHTML = `<span class="font-semibold">Email:</span> ${document.getElementById('email-address').value}`;
-            const locationText = document.getElementById('current-location').options[document.getElementById('current-location').selectedIndex].text;
-            document.getElementById('summary-location').innerHTML = `<span class="font-semibold">Location:</span> ${locationText}`;
-            
-            // Step 2 Data
-            const selectedInterests = Array.from(document.querySelectorAll('input[name="interest"]:checked'))
-                                         .map(checkbox => checkbox.value)
-                                         .join(', ');
-            document.getElementById('summary-interests').innerHTML = `<span class="font-semibold">Interests:</span> ${selectedInterests || 'None Selected'}`;
-            document.getElementById('summary-skills').innerHTML = `<span class="font-semibold">Skills/Experience:</span> ${document.getElementById('skills').value || 'Not provided'}`;
-        }
+        // Display Success Screen with Single Combined Message
+        const firstName = document.getElementById('first-name').value;
+        const amount = donorAmount.value || "0";
+        const method = document.querySelector('input[name="card-type"]:checked').value;
+
+        document.getElementById('combined-success-message').innerText = 
+            `Thank you, ${firstName}! Your donation of USD ${amount} was successful using ${method}. A receipt has been sent to your email.`;
+        
+        document.getElementById('success-screen').classList.remove('hidden');
+        document.getElementById('form-content').classList.add('invisible');
+        document.getElementById('success-screen').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    };
+
+    // Payment method indicator
+    document.querySelectorAll('input[name="card-type"]').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            const label = document.getElementById('selected-method-name');
+            label.innerText = "Selected: " + e.target.value;
+            label.classList.remove('hidden');
+        });
+    });
+});
 
 
-        // Form Submission Handler
-        form.addEventListener('submit', function(e) {
+// voluntier form //
+document.addEventListener('DOMContentLoaded', () => {
+    const vModal = document.getElementById('volunteer-modal');
+    const openVBtn = document.getElementById('open-volunteer');
+    const closeVBtn = document.getElementById('close-volunteer');
+    const vForm = document.getElementById('volunteer-form');
+    const vSuccess = document.getElementById('volunteer-success');
+
+    // Open Volunteer Modal
+    if(openVBtn) {
+        openVBtn.onclick = () => {
+            vModal.classList.remove('hidden');
+            vModal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Stop background scrolling
+        };
+    }
+
+    // Close Volunteer Modal
+    if(closeVBtn) {
+        closeVBtn.onclick = () => {
+            vModal.classList.add('hidden');
+            vModal.classList.remove('flex');
+            document.body.style.overflow = '';
+        };
+    }
+
+    // Form Submission Logic
+    if(vForm) {
+        vForm.onsubmit = (e) => {
             e.preventDefault();
             
-            if (!validateStep(3)) {
-                alert('Please agree to the Terms and Conditions.');
-                return;
+            // Here you would normally send data to your server
+            // For now, we show the success animation
+            vSuccess.classList.remove('hidden');
+            
+            // Optional: Auto-scroll to top of modal for the success message
+            vSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        };
+    }
+});
+
+// partnreship form //
+document.addEventListener('DOMContentLoaded', () => {
+    const pModal = document.getElementById('partner-modal');
+    const openPBtn = document.getElementById('open-partner');
+    const closePBtn = document.getElementById('close-partner');
+    const pForm = document.getElementById('partner-form');
+    const pSuccess = document.getElementById('partner-success');
+
+    // 1. OPEN/CLOSE MODAL
+    if(openPBtn) {
+        openPBtn.onclick = () => {
+            pModal.classList.replace('hidden', 'flex');
+            document.body.style.overflow = 'hidden';
+        };
+    }
+    if(closePBtn) {
+        closePBtn.onclick = () => {
+            pModal.classList.replace('flex', 'hidden');
+            document.body.style.overflow = '';
+        };
+    }
+
+    // 2. DYNAMIC FILENAME DISPLAY
+    const updateFileLabel = (inputId, displayId) => {
+        const input = document.getElementById(inputId);
+        const display = document.getElementById(displayId);
+        input.addEventListener('change', () => {
+            if(input.files.length > 0) {
+                display.innerText = "✓ " + input.files[0].name.substring(0, 15) + "...";
+                display.classList.replace('text-gray-500', 'text-yellow-600');
+                input.parentElement.classList.replace('border-gray-300', 'border-yellow-500');
             }
-
-            // Simulate Submission Process
-            const submitButton = document.querySelector('#step-3 .btn-success');
-            submitButton.textContent = 'Submitting...';
-            submitButton.disabled = true;
-
-            // Hide the form and show the success message after a delay
-            setTimeout(() => {
-                form.classList.add('hidden');
-                successMessage.classList.remove('hidden');
-            }, 1500);
         });
+    };
 
-        // Initialize the first step on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            updateSteps(1);
-        });
+    updateFileLabel('p-passport', 'p-passport-name');
+    updateFileLabel('p-cv', 'p-cv-name');
 
+    // 3. FORM SUBMISSION
+    if(pForm) {
+        pForm.onsubmit = (e) => {
+            e.preventDefault();
+            
+            const company = document.getElementById('p-company').value;
+            const firstName = document.getElementById('p-first-name').value;
+
+            document.getElementById('p-success-msg').innerText = 
+                `Thank you, ${firstName}. We have received the partnership inquiry and documents for ${company}. Our corporate relations team will review your profile and contact you shortly.`;
+            
+            pSuccess.classList.remove('hidden');
+        };
+    }
+});
 
         //lern more script//
         
@@ -741,10 +661,9 @@ document.addEventListener('keydown', (event) => {
             }
         }); 
 
-
         //impacts scrpt//
 
-document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
         threshold: 0.5 // Start animation when 50% of section is visible
     };
